@@ -1,7 +1,7 @@
 #docker-compose.yml
 version: "3.0"
 services:
-  app:
+  accounts:
     build: .
     volumes:
       - .:/app
@@ -9,11 +9,22 @@ services:
       DB_USER: root
       DB_HOST: db
       DB_PASSWORD: root
-    ports:
-      - "8002:8002"
+#    ports:
+#      - "8000:8000"
     restart: always
     networks:
-      - postgres_mb-net
+      - postgres_mb_net
+  nginx:
+      build:
+          context : .
+          dockerfile: docker/nginx/Dockerfile
+      depends_on:
+          - accounts
+      ports:
+          - "${SERVICE_PORT}:5100"
+      restart: always
+      networks:
+        - postgres_mb_net
 networks:
-  postgres_mb-net:
+  postgres_mb_net:
     external: true
