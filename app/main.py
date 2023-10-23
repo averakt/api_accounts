@@ -4,7 +4,7 @@ from app.routers import users
 from app.routers import accounts
 from fastapi import FastAPI
 
-app = FastAPI(docs_url="/accounts/docs", redoc_url="/accounts/redoc")
+app = FastAPI(docs_url="/accounts/docs", redoc_url="/accounts/redoc", openapi_url="/accounts/openapi.json")
 
 
 @app.on_event("startup")
