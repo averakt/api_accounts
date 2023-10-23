@@ -10,7 +10,7 @@ $ docker-compose --compatibility up --scale accounts=2 -d --build
 
 Использование `--compatibility` чтобы имя приложения docker имело имя с подчеркиваниями.
 
-Документация по работе с API http://127.0.0.1:8002/docs
+Документация по работе с API http://127.0.0.1:8002/accounts/docs или http://127.0.0.1:8002/accounts/redoc
 
 ## Как запустить тесты
 
